@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scenes/staticBlock.gd" type="Script" id=1]
+[ext_resource path="res://Graphics/block.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/Spike.tscn" type="PackedScene" id=3]
+
+[sub_resource type="PhysicsMaterial" id=2]
+bounce = 2.0
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 4, 4 )
+
+[node name="SpikedBlock" type="StaticBody2D"]
+physics_material_override = SubResource( 2 )
+script = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2( 16, 16 )
+shape = SubResource( 1 )
+
+[node name="block" type="Sprite" parent="CollisionShape2D"]
+texture = ExtResource( 2 )
+
+[node name="Spike" parent="CollisionShape2D" instance=ExtResource( 3 )]
+position = Vector2( 0, 4 )
+rotation = -3.14159
+scale = Vector2( 1, 1 )
+
+[node name="Spike2" parent="CollisionShape2D" instance=ExtResource( 3 )]
+position = Vector2( -4, 0 )
+rotation = -1.5708
+scale = Vector2( 1, 1 )
+
+[node name="Spike3" parent="CollisionShape2D" instance=ExtResource( 3 )]
+position = Vector2( 4, 0 )
+rotation = 1.5708
+scale = Vector2( 1, 1 )
+
+[node name="Spike4" parent="CollisionShape2D" instance=ExtResource( 3 )]
+position = Vector2( 0, -4 )
+scale = Vector2( 1, 1 )

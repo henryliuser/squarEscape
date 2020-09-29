@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Graphics/wallCorner.png" type="Texture" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 4, 4 )
+
+[node name="wallCorner" type="Sprite"]
+editor/display_folded = true
+position = Vector2( 510, 720 )
+scale = Vector2( 16, 16 )
+texture = ExtResource( 1 )
+centered = false
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D5"]
+position = Vector2( 4, 4 )
+shape = SubResource( 1 )

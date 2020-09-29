@@ -1,0 +1,92 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://Scenes/BrickBlock.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/PressurePlate.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Laser.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Spike.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Bumper.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/rigidBlock.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/wallCorner.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/wallMain.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/wallEdge.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Graphics/carpetCorner.png" type="Texture" id=10]
+[ext_resource path="res://Graphics/carpetHoriEdge.png" type="Texture" id=11]
+[ext_resource path="res://Graphics/carpetMain.png" type="Texture" id=12]
+[ext_resource path="res://Graphics/bounds.png" type="Texture" id=13]
+[ext_resource path="res://Graphics/doorAct.png" type="Texture" id=14]
+[ext_resource path="res://Scenes/door.tscn" type="PackedScene" id=15]
+
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 4, 4 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 4, 2 )
+
+[node name="MileTap" type="Node2D"]
+
+[node name="BrickBlock" parent="." instance=ExtResource( 1 )]
+position = Vector2( 100, 110 )
+
+[node name="PressurePlate" parent="." instance=ExtResource( 2 )]
+
+[node name="Laser" parent="." instance=ExtResource( 3 )]
+
+[node name="Spike" parent="." instance=ExtResource( 4 )]
+
+[node name="Bumper" parent="." instance=ExtResource( 5 )]
+position = Vector2( 960, 220 )
+
+[node name="block" parent="." instance=ExtResource( 6 )]
+position = Vector2( 240, 690 )
+
+[node name="wallCorner" parent="." instance=ExtResource( 7 )]
+
+[node name="wallMain" parent="." instance=ExtResource( 8 )]
+
+[node name="wallEdge" parent="." instance=ExtResource( 9 )]
+
+[node name="carpetCorner" type="Sprite" parent="."]
+position = Vector2( 840, 280 )
+scale = Vector2( 16, 16 )
+texture = ExtResource( 10 )
+
+[node name="carpetEdge" type="Sprite" parent="."]
+position = Vector2( 860, 110 )
+scale = Vector2( 16, 16 )
+texture = ExtResource( 11 )
+
+[node name="carpetMain" type="Sprite" parent="."]
+position = Vector2( 540, 80 )
+scale = Vector2( 16, 16 )
+texture = ExtResource( 12 )
+
+[node name="bounds" type="Sprite" parent="."]
+editor/display_folded = true
+position = Vector2( 320, 120 )
+scale = Vector2( 16, 16 )
+texture = ExtResource( 13 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="bounds"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bounds/StaticBody2D"]
+shape = SubResource( 1 )
+
+[node name="doorAct" type="Sprite" parent="."]
+editor/display_folded = true
+position = Vector2( 310, 494 )
+scale = Vector2( 16, 16 )
+texture = ExtResource( 14 )
+centered = false
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="doorAct"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="doorAct/StaticBody2D"]
+position = Vector2( 4, 2 )
+shape = SubResource( 2 )
+
+[node name="doorMant" parent="." instance=ExtResource( 15 )]
+animation = "doorMant"

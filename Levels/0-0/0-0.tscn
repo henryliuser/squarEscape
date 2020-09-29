@@ -1,0 +1,101 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Scenes/CarpetFlooring.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/rigidBlock.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/wallCorner.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/wallEdgeHori.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/wallMain.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/wallEdge.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Cursor/Cursor.tscn" type="PackedScene" id=8]
+
+
+[node name="0-0" type="Node2D"]
+editor/display_folded = true
+
+[node name="CarpetFlooring" parent="." instance=ExtResource( 1 )]
+modulate = Color( 0.784314, 0.784314, 0.784314, 1 )
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+
+[node name="Walls" type="Node2D" parent="."]
+
+[node name="block" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 990, 260 )
+
+[node name="wallCorner" parent="Walls" instance=ExtResource( 4 )]
+editor/display_folded = false
+position = Vector2( 460, 500 )
+flip_v = true
+
+[node name="wallCorner2" parent="Walls/wallCorner" instance=ExtResource( 4 )]
+position = Vector2( 40, 0 )
+scale = Vector2( 1, 1 )
+flip_h = true
+flip_v = true
+
+[node name="wallEdgeHori" parent="Walls/wallCorner" instance=ExtResource( 5 )]
+position = Vector2( 8, 0 )
+scale = Vector2( 1, 1 )
+flip_v = true
+
+[node name="wallEdgeHori2" parent="Walls/wallCorner" instance=ExtResource( 5 )]
+position = Vector2( 16, 0 )
+scale = Vector2( 1, 1 )
+flip_v = true
+
+[node name="wallEdgeHori3" parent="Walls/wallCorner" instance=ExtResource( 5 )]
+position = Vector2( 24, 0 )
+scale = Vector2( 1, 1 )
+flip_v = true
+
+[node name="wallEdgeHori4" parent="Walls/wallCorner" instance=ExtResource( 5 )]
+position = Vector2( 32, 0 )
+scale = Vector2( 1, 1 )
+flip_v = true
+
+[node name="wallCorner2" parent="Walls" instance=ExtResource( 4 )]
+editor/display_folded = false
+position = Vector2( 460, 756 )
+
+[node name="wallCorner2" parent="Walls/wallCorner2" instance=ExtResource( 4 )]
+position = Vector2( 40, 0 )
+scale = Vector2( 1, 1 )
+flip_h = true
+
+[node name="wallEdgeHori" parent="Walls/wallCorner2" instance=ExtResource( 5 )]
+position = Vector2( 8, 0 )
+scale = Vector2( 1, 1 )
+
+[node name="wallEdgeHori2" parent="Walls/wallCorner2" instance=ExtResource( 5 )]
+position = Vector2( 16, 0 )
+scale = Vector2( 1, 1 )
+
+[node name="wallEdgeHori3" parent="Walls/wallCorner2" instance=ExtResource( 5 )]
+position = Vector2( 24, 0 )
+scale = Vector2( 1, 1 )
+
+[node name="wallEdgeHori4" parent="Walls/wallCorner2" instance=ExtResource( 5 )]
+position = Vector2( 32, 0 )
+scale = Vector2( 1, 1 )
+
+[node name="wallMain" parent="Walls" instance=ExtResource( 6 )]
+position = Vector2( 588, 628 )
+
+[node name="wallMain4" parent="Walls" instance=ExtResource( 6 )]
+position = Vector2( 844, 628 )
+
+[node name="wallMain2" parent="Walls" instance=ExtResource( 6 )]
+position = Vector2( 716, 628 )
+
+[node name="wallMain3" parent="Walls" instance=ExtResource( 6 )]
+position = Vector2( 972, 628 )
+
+[node name="wallEdge2" parent="Walls" instance=ExtResource( 7 )]
+position = Vector2( 1100, 628 )
+
+[node name="wallEdge3" parent="Walls" instance=ExtResource( 7 )]
+position = Vector2( 460, 628 )
+flip_h = true
+
+[node name="Cursor" parent="." instance=ExtResource( 8 )]

@@ -1,0 +1,54 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Levels/GameOver.gd" type="Script" id=1]
+[ext_resource path="res://Graphics/joystix monospace.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0 )
+colors = PoolColorArray( 0.478431, 0.478431, 0.478431, 1 )
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
+width = 1920
+
+[sub_resource type="DynamicFont" id=3]
+size = 170
+outline_size = 7
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 100
+outline_size = 7
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 2 )
+
+[node name="GameOver" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_right = 1920.0
+margin_bottom = 1080.0
+texture = SubResource( 2 )
+expand = true
+
+[node name="Label" type="Label" parent="."]
+margin_left = 326.0
+margin_top = 272.0
+margin_right = 1595.0
+margin_bottom = 476.0
+custom_fonts/font = SubResource( 3 )
+text = "GAME OVER"
+
+[node name="Button" type="Button" parent="."]
+margin_left = 788.0
+margin_top = 700.0
+margin_right = 1132.0
+margin_bottom = 826.0
+custom_fonts/font = SubResource( 4 )
+text = "MENU"
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

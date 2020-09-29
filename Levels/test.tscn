@@ -1,0 +1,51 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Scenes/CarpetFlooring.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/BrickBlock.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/PressurePlate.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Laser.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Spike.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Bumper.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/wallEdgeHori.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/wallEdge.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/wallMain.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/rigidBlock.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/wallCorner.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=12]
+
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CarpetFlooring" parent="." instance=ExtResource( 1 )]
+position = Vector2( 64, 30 )
+centered = false
+offset = Vector2( 0, 0 )
+
+[node name="BrickBlock" parent="." instance=ExtResource( 2 )]
+position = Vector2( -908.8, 570.211 )
+
+[node name="PressurePlate" parent="." instance=ExtResource( 3 )]
+position = Vector2( -698.169, 509.329 )
+
+[node name="Laser" parent="." instance=ExtResource( 4 )]
+position = Vector2( -530.239, 506.211 )
+
+[node name="Spike" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1240, 450 )
+
+[node name="Bumper" parent="." instance=ExtResource( 6 )]
+position = Vector2( -629.651, 236 )
+
+[node name="Walls" type="Node2D" parent="."]
+
+[node name="wallEdgeHori" parent="Walls" instance=ExtResource( 7 )]
+
+[node name="wallEdge" parent="Walls" instance=ExtResource( 8 )]
+
+[node name="wallMain" parent="Walls" instance=ExtResource( 9 )]
+
+[node name="block" parent="Walls" instance=ExtResource( 10 )]
+
+[node name="wallCorner" parent="Walls" instance=ExtResource( 11 )]
+
+[node name="Player" parent="." instance=ExtResource( 12 )]

@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Graphics/spikeHori.png" type="Texture" id=1]
+
+[node name="spikeHori" type="Sprite"]
+position = Vector2( 1.45696, 4.54604 )
+texture = ExtResource( 1 )
+offset = Vector2( 4, 0 )
+
+[node name="Area2D2" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D2"]
+position = Vector2( 3.99875, -0.0412445 )
+rotation = 1.5708
+scale = Vector2( 0.0625, 0.0625 )
+polygon = PoolVector2Array( -48.7258, 63.5811, -46.0454, 0.639847, -15.786, -47.2, 14.659, -47.2, 49.9245, 2.55923, 49.0965, 63.5811 )

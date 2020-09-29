@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Graphics/sprite_04.png" type="Texture" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 64, 64 )
+
+[node name="BrickBlock" type="Sprite"]
+position = Vector2( 31, -3 )
+scale = Vector2( 16, 16 )
+texture = ExtResource( 1 )
+centered = false
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BrickBlock" type="StaticBody2D" parent="."]
+scale = Vector2( 0.0625, 0.0625 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BrickBlock"]
+position = Vector2( 64, 64 )
+shape = SubResource( 1 )
