@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Levels/MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://Graphics/joystix monospace.ttf" type="DynamicFontData" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Graphics/block.png" type="Texture" id=8]
 [ext_resource path="res://Graphics/sprite_03.png" type="Texture" id=9]
 [ext_resource path="res://Graphics/sprite_01.png" type="Texture" id=10]
+[ext_resource path="res://Levels/splashtween.gd" type="Script" id=11]
 [ext_resource path="res://Graphics/sprite_05.png" type="Texture" id=12]
 [ext_resource path="res://Graphics/sprite_02.png" type="Texture" id=13]
 
@@ -21,31 +22,14 @@ colors = PoolColorArray( 0.894118, 0.635294, 0.635294, 1, 0.666667, 0.666667, 0.
 gradient = SubResource( 1 )
 width = 1920
 
-[sub_resource type="Shader" id=3]
-code = "shader_type canvas_item;
-
-uniform float time_factor = 1;
-uniform vec2 amplitude = vec2(3.0, 3.0);
-
-void vertex() {
-	VERTEX.x += sin(TIME*time_factor + VERTEX.y) * amplitude.x;
-	VERTEX.y += cos(TIME*time_factor + VERTEX.x) * amplitude.y;
-}"
-custom_defines = ""
-
-[sub_resource type="ShaderMaterial" id=4]
-shader = SubResource( 3 )
-shader_param/time_factor = 1.0
-shader_param/amplitude = Vector2( 3, 3 )
-
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=3]
 size = 240
 outline_size = 15
 outline_color = Color( 0, 0, 0, 1 )
 use_filter = true
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=6]
+[sub_resource type="DynamicFont" id=4]
 size = 150
 outline_size = 10
 outline_color = Color( 0, 0, 0, 1 )
@@ -65,19 +49,17 @@ __meta__ = {
 }
 
 [node name="E" type="Label" parent="."]
-material = SubResource( 4 )
 margin_left = 860.5
 margin_top = 32.0
 margin_right = 1059.5
 margin_bottom = 320.0
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 3 )
 text = "E"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Title" type="Label" parent="."]
-material = SubResource( 4 )
 anchor_left = 0.1
 anchor_right = 0.3
 margin_left = 210.877
@@ -85,7 +67,7 @@ margin_top = 76.5849
 margin_right = 1698.88
 margin_bottom = 276.585
 rect_pivot_offset = Vector2( 512, 192 )
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 4 )
 text = "squar  scape"
 align = 1
 valign = 1
@@ -109,26 +91,6 @@ position = Vector2( 19.1819, 0.222057 )
 rotation = 0.784859
 texture = ExtResource( 5 )
 
-[node name="sprite_01" type="Sprite" parent="."]
-position = Vector2( 722.281, 797.795 )
-scale = Vector2( 13, 13 )
-texture = ExtResource( 10 )
-
-[node name="sprite_00" type="Sprite" parent="sprite_01"]
-position = Vector2( 7.8112, -3.25158 )
-scale = Vector2( 1.38462, 1.38462 )
-texture = ExtResource( 4 )
-
-[node name="sprite_03" type="Sprite" parent="sprite_01"]
-position = Vector2( 18.0176, -6.08766 )
-scale = Vector2( 1.84615, 1.84615 )
-texture = ExtResource( 9 )
-
-[node name="sprite_02" type="Sprite" parent="sprite_01"]
-position = Vector2( 30.8243, -10.8613 )
-scale = Vector2( 2.46154, 2.46154 )
-texture = ExtResource( 13 )
-
 [node name="sprite_05" type="Sprite" parent="."]
 position = Vector2( 348.684, 876.353 )
 scale = Vector2( 24, 24 )
@@ -140,6 +102,31 @@ scale = Vector2( 24, 24 )
 texture = ExtResource( 7 )
 
 [node name="sprite_11" type="Sprite" parent="."]
-position = Vector2( 1835.03, 1000.97 )
+position = Vector2( 1735.71, 922.435 )
 scale = Vector2( 16, 16 )
 texture = ExtResource( 3 )
+
+[node name="sprite_01" type="Sprite" parent="sprite_11"]
+position = Vector2( -62.7616, -8.51184 )
+scale = Vector2( 0.8125, 0.8125 )
+texture = ExtResource( 10 )
+
+[node name="sprite_00" type="Sprite" parent="sprite_11"]
+position = Vector2( -56.415, -11.1538 )
+scale = Vector2( 1.125, 1.125 )
+texture = ExtResource( 4 )
+
+[node name="sprite_03" type="Sprite" parent="sprite_11"]
+position = Vector2( -48.1223, -13.4581 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 9 )
+
+[node name="sprite_02" type="Sprite" parent="sprite_11"]
+position = Vector2( -37.7169, -17.3367 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 13 )
+
+[node name="Tween" type="Tween" parent="."]
+repeat = true
+playback/repeat = true
+script = ExtResource( 11 )
